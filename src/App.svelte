@@ -1,26 +1,26 @@
 <script>
 	import moment from 'moment';
 
-	let doi = null;
-	let dob = localStorage.getItem('dob');;
+	let dateOfImage = null;
+	let dateOfBirth = localStorage.getItem('dateOfBirth');;
 	let duration = '';
 
-	$: localStorage.setItem('dob', dob);
+	$: localStorage.setItem('dateOfBirth', dateOfBirth);
 
-	$: if (doi && dob) {
-		duration = moment.duration(moment(doi).diff(moment(dob))).humanize();
+	$: if (dateOfImage && dateOfBirth) {
+		duration = moment.duration(moment(dateOfImage).diff(moment(dateOfBirth))).humanize();
 	}
 </script>
 
 <div>
 	<div class="form-group">
 		<label>Date of birth</label>
-		<input type="date" class="form-control" bind:value={dob}>
+		<input type="date" class="form-control" bind:value={dateOfBirth}>
 	</div>
 
 	<div class="form-group">
 		<label>Date of image</label>
-		<input type="date" class="form-control" bind:value={doi}>
+		<input type="date" class="form-control" bind:value={dateOfImage}>
 	</div>
 
 	<div class="form-group">
