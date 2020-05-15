@@ -13,10 +13,19 @@
 </script>
 
 <div>
-	<input type="date" bind:value={dob}>
-	<input type="date" bind:value={doi}>
+	<div class="form-group">
+		<label>Date of birth</label>
+		<input type="date" class="form-control" bind:value={dob}>
+	</div>
 
-	<div>
+	<div class="form-group">
+		<label>Date of image</label>
+		<input type="date" class="form-control" bind:value={doi}>
+	</div>
+
+	<div class="form-group">
+		<label>Time between dates</label>
+		<br/>
 		{duration} 
 	</div>
 </div>
