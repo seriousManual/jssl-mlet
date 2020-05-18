@@ -1,22 +1,31 @@
 <script>
 	import moment from 'moment';
 
-	let date1 = localStorage.getItem('date1');
-	let date2 = null;
+	let dateOfImage = null;
+	let dateOfBirth = localStorage.getItem('dateOfBirth');;
 	let duration = '';
 
-	$: localStorage.setItem('date1', date1);
+	$: localStorage.setItem('dateOfBirth', dateOfBirth);
 
-	$: if (date1 && date2) {
-		duration = moment.duration(moment(date1).diff(moment(date2))).humanize();
+	$: if (dateOfImage && dateOfBirth) {
+		duration = moment.duration(moment(dateOfImage).diff(moment(dateOfBirth))).humanize();
 	}
 </script>
 
 <div>
-	<input type="date" bind:value={date2}>
-	<input type="date" bind:value={date1}>
+	<div class="form-group">
+		<label>Date of birth</label>
+		<input type="date" class="form-control" bind:value={dateOfBirth}>
+	</div>
 
-	<div>
+	<div class="form-group">
+		<label>Date of image</label>
+		<input type="date" class="form-control" bind:value={dateOfImage}>
+	</div>
+
+	<div class="form-group">
+		<label>Time between dates</label>
+		<br/>
 		{duration} 
 	</div>
 </div>
