@@ -10,6 +10,8 @@
 
 	$: if (startDate && endDate) {
 		duration = moment.duration(moment(endDate).diff(moment(startDate))).as(unit).toFixed(numberOfDecimals)
+	} else {
+		duration = null
 	}
 
 </script>

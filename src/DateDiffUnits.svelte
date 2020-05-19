@@ -17,6 +17,8 @@
 		})
 
 		duration = strings.join(' ')
+	} else {
+		duration = null
 	}
 </script>
 
