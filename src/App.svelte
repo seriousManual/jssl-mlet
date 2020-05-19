@@ -54,5 +54,5 @@
 			<h3>{durationDiff}</h3>
 		</div>
 	</div>
-	<DateDiff startDate=dateOfBirth endDate=dateOfImage/>
+	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage}/>
 </div>
