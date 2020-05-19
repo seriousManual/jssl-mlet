@@ -1,12 +1,12 @@
 <script>
 	import moment from 'moment';
 
-	export let startDate;
-	export let endDate;
+	export let startDate = null;
+	export let endDate = null;
 	export let unit = 'days';
+	export let numberOfDecimals = 1;
 
-	let duration = 0;
-	const numberOfDecimals = 1;
+	let duration = null;
 
 	$: if (startDate && endDate) {
 		duration = moment.duration(moment(endDate).diff(moment(startDate))).as(unit).toFixed(numberOfDecimals)
@@ -14,4 +14,8 @@
 
 </script>
 
-{duration} {unit}
+{#if duration}
+<div>
+	{duration} {unit}
+</div>
+{/if}
