@@ -1,23 +1,12 @@
 <script>
 	import moment from 'moment';
 	import DateDiff from './DateDiff.svelte';
+	import DateDiffUnits from './DateDiffUnits.svelte';
 
 	let dateOfImage = null;
 	let dateOfBirth = localStorage.getItem('dateOfBirth');;
-	let durationDiff = null;
 
 	$: localStorage.setItem('dateOfBirth', dateOfBirth);
-
-	$: if (dateOfImage && dateOfBirth) {
-		const durationObject = moment.duration(moment(dateOfImage).diff(moment(dateOfBirth)))
-
-		const month = Math.floor(durationObject.as('months'))
-		durationObject.subtract(month, 'months')
-		const weeks = Math.floor(durationObject.as('weeks'))
-		durationObject.subtract(weeks, 'weeks')
-		const days = durationObject.as('days').toFixed(0)
-		durationDiff = month + "m " + weeks + "w " + days + "d"
-	}
 </script>
 
 <div style="width:85%;margin:auto;margin-top:20px">
@@ -31,15 +20,7 @@
 		<input type="date" class="form-control" bind:value={dateOfImage}>
 	</div>
 
-{#if durationDiff}
-	<div class="form-group">
-		<label>Time between dates</label>
-		<div>
-			<h3>{durationDiff}</h3>
-		</div>
-	</div>
-{/if}
-
+	<DateDiffUnits bind:startDate={dateOfBirth} bind:endDate={dateOfImage} />
 	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="days" numberOfDecimals=0/>
 	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="weeks"/>
 	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="months"/>
