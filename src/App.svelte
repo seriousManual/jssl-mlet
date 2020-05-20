@@ -1,3 +1,12 @@
+<style>
+	.root {
+		width:85%;
+		margin:auto;
+		margin-top:20px;
+		max-width: 600px;
+	}
+</style>
+
 <script>
 	import moment from 'moment';
 	import DateDiff from './DateDiff.svelte';
@@ -9,7 +18,7 @@
 	$: localStorage.setItem('dateOfBirth', dateOfBirth);
 </script>
 
-<div style="width:85%;margin:auto;margin-top:20px">
+<div class="root">
 	<div class="form-group">
 		<label>Date of birth</label>
 		<input type="date" class="form-control" bind:value={dateOfBirth}>
