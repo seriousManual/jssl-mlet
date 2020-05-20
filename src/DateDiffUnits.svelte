@@ -1,5 +1,6 @@
 <script>
 	import moment from 'moment';
+	import { afterUpdate } from 'svelte';
 
 	export let startDate = null;
 	export let endDate = null;
@@ -7,19 +8,22 @@
 
 	let duration = '';
 
-	$: if (startDate && endDate) {
-		const durationObject = moment.duration(moment(endDate).diff(moment(startDate)))
+	afterUpdate( () => {
+		if (startDate && endDate) {
+			const durationObject = moment.duration(moment(endDate).diff(moment(startDate)))
+			const strings = []
 
-		const strings = units.map( unit => {
-			const number = Math.floor(durationObject.as(unit))
-			durationObject.subtract(number, unit)
-			return number + unit.substring(0, 1)
-		})
+			units.forEach(unit => {
+				const number = Math.floor(durationObject.as(unit))
+				durationObject.subtract(number, unit)
+				strings.push(number + unit.substring(0,1))
+			})
 
-		duration = strings.join(' ')
-	} else {
-		duration = null
-	}
+			duration = strings.join(' ')
+		} else {
+			duration = null
+		}
+	})
 </script>
 
 {#if duration}

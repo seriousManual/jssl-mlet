@@ -20,9 +20,9 @@
 		<input type="date" class="form-control" bind:value={dateOfImage}>
 	</div>
 
-	<DateDiffUnits bind:startDate={dateOfBirth} bind:endDate={dateOfImage} />
-	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="days" numberOfDecimals=0/>
-	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="weeks"/>
-	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="months"/>
-	<DateDiff bind:startDate={dateOfBirth} bind:endDate={dateOfImage} unit="years"/>
+	<DateDiffUnits startDate={dateOfBirth} endDate={dateOfImage} />
+	<DateDiff startDate={dateOfBirth} endDate={dateOfImage} unit="days" numberOfDecimals=0/>
+	<DateDiff startDate={dateOfBirth} endDate={dateOfImage} unit="weeks"/>
+	<DateDiff startDate={dateOfBirth} endDate={dateOfImage} unit="months"/>
+	<DateDiff startDate={dateOfBirth} endDate={dateOfImage} unit="years"/>
 </div>
