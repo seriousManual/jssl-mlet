@@ -7,11 +7,11 @@
   },
   "webDependencies": {},
   "devDependencies": {
-    "@snowpack/app-scripts-svelte": "^0.4.0",
+    "@snowpack/app-scripts-svelte": "^0.8.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/svelte": "^3.0.0",
     "jest": "^25.4.0",
-    "snowpack": "2.0.0-beta.19",
+    "snowpack": "^2.0.0-rc.12",
     "svelte": "^3.21.0"
   },
   "dependencies": {
